@@ -1,0 +1,408 @@
+
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #FFF7ED;
+      color: #3B2416;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -3;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(245, 158, 11, 0.18), transparent 28%),
+        radial-gradient(circle at 82% 12%, rgba(251, 146, 60, 0.15), transparent 30%),
+        linear-gradient(180deg, #FFFBF5, #FFF7ED 45%, #FDE7C8);
+    }
+
+    .page-glow {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(58px);
+      opacity: 0.36;
+      mix-blend-mode: multiply;
+      will-change: transform, opacity;
+    }
+
+    .glow-1 {
+      width: 340px;
+      height: 340px;
+      left: -110px;
+      top: 8%;
+      background: rgba(245, 158, 11, 0.54);
+      animation: glowDriftOne 13s ease-in-out infinite alternate, glowPulse 8s ease-in-out infinite;
+    }
+
+    .glow-2 {
+      width: 320px;
+      height: 320px;
+      right: -100px;
+      top: 28%;
+      background: rgba(253, 186, 116, 0.55);
+      animation: glowDriftTwo 11s ease-in-out infinite alternate, glowPulse 9s ease-in-out infinite reverse;
+    }
+
+    .glow-3 {
+      width: 420px;
+      height: 420px;
+      left: 22%;
+      top: 56%;
+      background: rgba(255, 251, 245, 0.92);
+      animation: glowLamp 15s ease-in-out infinite alternate;
+      opacity: 0.62;
+    }
+
+    .glow-4 {
+      width: 330px;
+      height: 330px;
+      right: 14%;
+      bottom: -120px;
+      background: rgba(201, 150, 106, 0.38);
+      animation: glowDriftThree 14s ease-in-out infinite alternate, glowPulse 10s ease-in-out infinite;
+    }
+
+    @keyframes glowDriftOne {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(155px, 38px, 0) scale(1.08); }
+    }
+
+    @keyframes glowDriftTwo {
+      0% { transform: translate3d(0, -28px, 0) scale(0.98); }
+      100% { transform: translate3d(-62px, 82px, 0) scale(1.08); }
+    }
+
+    @keyframes glowDriftThree {
+      0% { transform: translate3d(28px, 0, 0) scale(1); }
+      100% { transform: translate3d(-90px, -68px, 0) scale(1.06); }
+    }
+
+    @keyframes glowLamp {
+      0% { transform: translate3d(-34px, 18px, 0) scale(1); opacity: 0.42; }
+      100% { transform: translate3d(56px, -42px, 0) scale(1.10); opacity: 0.70; }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.32; }
+      50% { opacity: 0.56; }
+    }
+
+    .animated-warm-bg {
+      position: relative;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(245, 158, 11, 0.28), transparent 28%),
+        radial-gradient(circle at 80% 22%, rgba(253, 186, 116, 0.24), transparent 30%),
+        linear-gradient(125deg, #FFFBF5, #FFF7ED, #FDE7C8, #FDBA74, #FFF7ED);
+      background-size: 240% 240%;
+      animation: warmGradientMove 22s ease-in-out infinite;
+    }
+
+    .floating-light {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(42px);
+      opacity: 0.26;
+      pointer-events: none;
+      animation: floatingGlow 12s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .floating-light-slow {
+      animation-duration: 13s;
+      animation-delay: -3s;
+    }
+
+    .floating-light-soft {
+      animation-duration: 16s;
+      animation-delay: -6s;
+      opacity: 0.24;
+    }
+
+    @keyframes warmGradientMove {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes floatingGlow {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(18px, -24px, 0) scale(1.08); }
+    }
+
+    .glass-warm {
+      background: rgba(255, 248, 236, 0.74);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.58);
+    }
+
+    .nav-scrolled {
+      background: rgba(255, 248, 236, 0.90);
+      box-shadow: 0 10px 30px rgba(75, 46, 31, 0.10);
+      backdrop-filter: blur(16px);
+    }
+
+    .photo-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #FFFBF5, #FDBA74, #6F4E37);
+    }
+
+    .photo-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(24, 14, 8, 0.04), rgba(24, 14, 8, 0.38));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.65s ease;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.045);
+    }
+
+    .photo-card img:not([src]),
+    .photo-card img[src=""] {
+      display: none;
+    }
+
+    .photo-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      color: #fff8ec;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.24), transparent 28%),
+        linear-gradient(135deg, rgba(245, 158, 11, 0.42), rgba(111, 78, 55, 0.68));
+      animation: fallbackLight 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes fallbackLight {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.07); }
+    }
+
+    .photo-card img[src]:not([src=""]) + .photo-fallback {
+      display: none;
+    }
+
+    .section-soft {
+      background:
+        radial-gradient(circle at 12% 10%, rgba(245, 158, 11, 0.11), transparent 26%),
+        linear-gradient(180deg, rgba(255, 248, 236, 0.88), rgba(255, 243, 220, 0.88));
+    }
+
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 45px rgba(75, 46, 31, 0.14);
+    }
+
+    .btn-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .btn-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(75, 46, 31, 0.16);
+    }
+
+    .float-card {
+      animation: softCardFloat 5.5s ease-in-out infinite alternate;
+    }
+
+    .float-card:nth-child(2) {
+      animation-delay: -1s;
+    }
+
+    .float-card:nth-child(3) {
+      animation-delay: -2s;
+    }
+
+    @keyframes softCardFloat {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(0, -10px, 0); }
+    }
+
+    .wa-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+    }
+
+    .line-icon {
+      width: 26px;
+      height: 26px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 640px) {
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .animated-warm-bg {
+        animation-duration: 24s;
+      }
+
+      .floating-light,
+      .glow-orb {
+        filter: blur(30px);
+        opacity: 0.18;
+      }
+
+      .glow-1,
+      .glow-2,
+      .glow-3,
+      .glow-4 {
+        width: 220px;
+        height: 220px;
+      }
+
+      .hero-title {
+        font-size: 2.15rem;
+        line-height: 1.12;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.8;
+      }
+
+      .hero-mini-cards {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .hero-mini-cards .glass-warm {
+        padding: 1rem;
+        border-radius: 1.35rem;
+      }
+
+      .hero-mini-cards p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+      }
+
+      .hero-actions a {
+        width: 100%;
+        padding-top: 0.9rem;
+        padding-bottom: 0.9rem;
+      }
+
+      .hero-tags {
+        gap: 0.5rem;
+      }
+
+      .hero-tags span {
+        font-size: 0.72rem;
+        padding: 0.45rem 0.75rem;
+      }
+
+      .hero-badge {
+        max-width: 100%;
+        font-size: 0.72rem;
+        line-height: 1.35;
+      }
+
+      .hero-visual {
+        margin-top: 0.5rem;
+      }
+
+      .hero-visual .glass-warm {
+        max-width: 100%;
+        padding: 0.85rem;
+        border-radius: 1.6rem;
+      }
+
+      .hero-visual .photo-card {
+        height: 340px;
+        border-radius: 1.25rem;
+      }
+
+      .float-card {
+        display: none;
+      }
+
+      .wa-float {
+        right: 14px;
+        bottom: 14px;
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Hover khusus card Suasana Sehabis Senja */
+.suasana-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease;
+  border: 1px solid rgba(255, 251, 245, 0.12);
+}
+
+.suasana-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 24px 60px rgba(245, 158, 11, 0.18);
+}
+
+.suasana-card .photo-card img {
+  transition: transform 0.7s ease;
+}
+
+.suasana-card:hover .photo-card img {
+  transform: scale(1.07);
+}
